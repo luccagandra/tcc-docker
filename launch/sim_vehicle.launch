@@ -3,7 +3,7 @@
   <arg name="name"                  default="kopterworx"/>
   <arg name="id"                    default="1"/>
 
-  <arg name="parm_file"             default="$(find tcc_docker)/config/ardupilot_params/$(arg name).params"/>
+  <arg name="parm_file"             default="$(find tcc_docker)/config/ardupilot_params/kopterworx.params"/>
 
   <arg name="enable_console"        default="false"/>
   <arg name="enable_map"            default="false"/>

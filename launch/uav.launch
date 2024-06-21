@@ -9,7 +9,7 @@
   <arg name="pitch"               default="0"/> 
   <arg name="yaw"                 default="0"/>
   <arg name="enable_ground_truth" default="true"/>
-  <arg name="model"               default="$(find cbr_simulation)/models/cbr_simulation/urdf/cbr_simulation.urdf.xacro" />
+  <arg name="model"               default="$(find tcc_docker)/models/tcc_docker/urdf/tcc_docker.urdf.xacro" />
   <arg name="world"               default="worlds/empty.world"/>
   <arg name="fdm_port_in"         default="9002"/>
   <arg name="fdm_port_out"        default="9003"/>
@@ -47,7 +47,7 @@
     <arg name="debug"           value="false" />
   </include>
 
-  <include file="$(find cbr_simulation)/launch/spawn_mav.launch">
+  <include file="$(find tcc_docker)/launch/spawn_mav.launch">
     <arg name="name"                value="$(arg name)"/>
     <arg name="tf_prefix"           value="$(arg tf_prefix)"/>
     <arg name="x"                   value="$(arg x)"/>

@@ -47,7 +47,7 @@ cmd:
 # global_position
 global_position:
   frame_id: "map"             # origin frame
-  child_frame_id: "lead_drone/base_link" # body-fixed frame
+  child_frame_id: "tcc_drone/base_link" # body-fixed frame
   rot_covariance: 99999.0   # covariance for attitude?
   gps_uere: 1.0             # User Equivalent Range Error (UERE) of GPS sensor (m)
   use_relative_alt: true    # use relative altitude for local coordinates
@@ -59,7 +59,7 @@ global_position:
 
 # imu_pub
 imu:
-  frame_id: "lead_drone/base_link"
+  frame_id: "tcc_drone/base_link"
   # need find actual values
   linear_acceleration_stdev: 0.0003
   angular_velocity_stdev: 0.0003490659 // 0.02 degrees
@@ -72,7 +72,7 @@ local_position:
   tf:
     send: false
     frame_id: "map"
-    child_frame_id: "lead_drone/base_link"
+    child_frame_id: "tcc_drone/base_link"
     send_fcu: false
 
 # param
@@ -253,7 +253,7 @@ vision_speed:
 
 # vibration
 vibration:
-  frame_id: "lead_drone/base_link"
+  frame_id: "tcc_drone/base_link"
 
 # wheel_odometry
 wheel_odometry:
@@ -264,11 +264,11 @@ wheel_odometry:
   send_raw: true              # send wheel's RPM and cumulative distance (~/wheel_odometry/rpm, ~/wheel_odometry/distance)
   send_twist: false           # send geometry_msgs/TwistWithCovarianceStamped instead of nav_msgs/Odometry
   frame_id: "map"             # origin frame
-  child_frame_id: "lead_drone/base_link" # body-fixed frame
+  child_frame_id: "tcc_drone/base_link" # body-fixed frame
   vel_error: 0.1              # wheel velocity measurement error 1-std (m/s)
   tf:
     send: true
     frame_id: "map"
-    child_frame_id: "lead_drone/base_link"
+    child_frame_id: "tcc_drone/base_link"
 
 # vim:set ts=2 sw=2 et:

@@ -1,5 +1,24 @@
 FROM lmark1/uav_ros_simulation:focal-bin-0.0.1 as uav_base
 
+ARG SSH_KEY
+ENV SSH_KEY=$SSH_KEY
+
+# Make ssh dir
+#RUN mkdir $HOME/.ssh/
+ 
+# Copy over private key, and set permissions
+
+RUN echo "$SSH_KEY" > $HOME/.ssh/id_rsa
+RUN chmod 600 $HOME/.ssh/id_rsa
+ 
+# Create known_hosts
+RUN touch $HOME/.ssh/known_hosts
+
+# Add bitbuckets key
+RUN ssh-keyscan bitbucket.org >> $HOME/.ssh/known_hosts
+RUN ssh-keyscan github.com >> $HOME/.ssh/known_hosts
+RUN ssh-keyscan gitlab.com >> $HOME/.ssh/known_hosts
+
 ARG CATKIN_WORKSPACE=simulator
 ARG DEBIAN_FRONTEND=noninteractive
 ARG HOME=/root
@@ -18,7 +37,7 @@ RUN apt-get update
 RUN mkdir -p $HOME/simulator/src
 WORKDIR $HOME/simulator/src
 # tcc_docker
-RUN git clone https://github.com/luccagandra/tcc-docker.git
+RUN git clone git@github.com:luccagandra/tcc-docker.git
 # ardupilot_models
 RUN git clone https://github.com/larics/ardupilot_gazebo.git
 # mav_comm

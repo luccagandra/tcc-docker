@@ -3,7 +3,7 @@ root: ./
 startup_window: roscore
 pre_window: |
   export UAV_NAMESPACE=kopterworx;
-  export WORLD_NAME=default;
+  export WORLD_NAME=wall_and_grass;
 windows:
   - roscore:
       layout:

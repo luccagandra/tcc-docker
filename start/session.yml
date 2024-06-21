@@ -1,0 +1,34 @@
+name: TCC Noetic
+root: ./
+startup_window: roscore
+pre_window: |
+  export UAV_NAMESPACE=kopterworx;
+  export WORLD_NAME=default;
+windows:
+  - roscore:
+      layout:
+      panes:
+        - roscore
+        - waitForRos; 
+          roslaunch tcc_docker sim_vehicle.launch
+          name:=${UAV_NAMESPACE}
+        - |
+          waitForRos
+          rosparam set use_sim_time true
+          waitForSimulation 
+          roslaunch tcc_docker apm.launch
+  - gazebo:
+      layout: tiled
+      panes:
+        - waitForRos; roslaunch tcc_docker uav.launch
+          name:=${UAV_NAMESPACE}
+          use_sim_time:=true
+          enable_magnet:=false
+          enable_velodyne:=false
+          model:=$(rospack find tcc_docker)/models/${UAV_NAMESPACE}/urdf/${UAV_NAMESPACE}.urdf.xacro
+          world:=$(rospack find tcc_docker)/worlds/${WORLD_NAME}.world
+  - user:
+      layout: tiled
+      panes:
+        - |
+          # Tela do user

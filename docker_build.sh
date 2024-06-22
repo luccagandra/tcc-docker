@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo "TCC - Ubuntu 20.04 Docker Image"
+echo "TCC - Ubuntu 22.04 Docker Image"
 
-echo "Building ROS Noetic"
+echo "Building ROS 2 Jammy"
 
 docker build \
     -f Dockerfile \

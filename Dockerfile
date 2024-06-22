@@ -1,12 +1,14 @@
-FROM lmark1/uav_ros_simulation:focal-bin-0.0.1 as uav_base
+FROM osrf/ros:humble-desktop-full-jammy
 
 ARG SSH_KEY
 ENV SSH_KEY=$SSH_KEY
 
 # Make ssh dir
-#RUN mkdir $HOME/.ssh/
+RUN mkdir $HOME/.ssh/
  
 # Copy over private key, and set permissions
+RUN  apt-get -yq update && \
+     apt-get -yqq install ssh
 
 RUN echo "$SSH_KEY" > $HOME/.ssh/id_rsa
 RUN chmod 600 $HOME/.ssh/id_rsa
@@ -38,18 +40,5 @@ RUN mkdir -p $HOME/simulator/src
 WORKDIR $HOME/simulator/src
 # tcc_docker
 RUN git clone git@github.com:luccagandra/tcc-docker.git
-# ardupilot_models
-RUN git clone https://github.com/larics/ardupilot_gazebo.git
-# mav_comm
-RUN git clone https://github.com/larics/mav_comm.git -b larics_master
-# rotors simulator
-RUN git clone https://github.com/larics/rotors_simulator.git -b larics_noetic_master
+
 WORKDIR $HOME/simulator/
-RUN bash -c "source /opt/ros/noetic/setup.bash; source ~/.bashrc;  catkin build" 
-
-# Add localhost for it 
-RUN echo "export ROS_MASTER_URI=http://127.0.0.1:11311" >> ~/.bashrc
-RUN echo "export ROS_HOSTNAME=127.0.0.1" >> ~/.bashrc
-RUN echo "source /root/simulator/devel/setup.bash" >> ~/.bashrc 
-
-CMD ["bash"]

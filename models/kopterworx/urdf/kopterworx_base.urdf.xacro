@@ -47,6 +47,11 @@
   <!-- Included URDF Files -->
   <xacro:include filename="$(find ardupilot_gazebo)/models/util/multirotor_base.urdf.xacro" />
 
+  <xacro:if value="$(arg enable_mavlink_interface)">
+    <!-- Instantiate mavlink telemetry interface. -->
+    <xacro:default_mavlink_interface namespace="${arg namespace}" imu_sub_topic="$(arg namespace)/imu" rotor_count="4" />
+  </xacro:if>
+
   <!-- Instantiate multirotor_base_macro once -->
   <xacro:multirotor_base_macro
     robot_namespace="$(arg namespace)"

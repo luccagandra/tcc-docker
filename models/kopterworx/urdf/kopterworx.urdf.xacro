@@ -100,6 +100,7 @@
     NOTE: thrust_multiplier 
       Value is tuned in order for mavros/setpoint_raw/attitude/thrust to reflect real-world behavior. 
   -->
+  <!--
   <xacro:ardupilot
     imu_topic="/${namespace}/imu"
     control_topic="/${namespace}/gazebo/command/motor_speed"
@@ -112,6 +113,7 @@
     fdm_port_in="${fdm_port_in}"
     fdm_port_out="${fdm_port_out}">
   </xacro:ardupilot>
+  -->
 
   <xacro:if value="${enable_magnet}">
     <xacro:magnet_plugin 

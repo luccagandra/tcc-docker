@@ -2,21 +2,21 @@ name: TCC Noetic
 root: ./
 startup_window: roscore
 pre_window: |
-  export UAV_NAMESPACE=X500;
-  export WORLD_NAME=wall_and_grass;
+  export UAV_NAMESPACE=kopterworx;
+  export WORLD_NAME=wall_light;
 windows:
   - roscore:
       layout:
       panes:
         - roscore
-        - waitForRos; 
-          roslaunch tcc_docker sim_vehicle.launch
-          name:=${UAV_NAMESPACE}
+        - #waitForRos; 
+          #roslaunch tcc_docker sim_vehicle.launch
+          #name:=${UAV_NAMESPACE}
         - |
-          waitForRos
-          rosparam set use_sim_time true
-          waitForSimulation 
-          roslaunch tcc_docker apm.launch
+          #waitForRos
+          #rosparam set use_sim_time true
+          #waitForSimulation 
+          #roslaunch tcc_docker apm.launch
   - gazebo:
       layout: tiled
       panes:

@@ -4,6 +4,8 @@
     <pose>0 0 .24 0 0 0</pose>
     <self_collide>false</self_collide>
     <static>false</static>
+
+    <!-- Base_link -->
     <link name="base_link">
       <inertial>
         <mass>2.0</mass>
@@ -23,7 +25,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://x500_base/meshes/NXP-HGD-CF.dae</uri>
+            <uri>model://x500_base/meshes/NXP_reverse.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -121,11 +123,11 @@
         </material>
       </visual>
       <visual name='rod_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0.165 0.001 -0.014 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
-            <uri>model://x500_base/meshes/rod_2.stl</uri>
+            <uri>model://x500_base/meshes/interface_sensor_drone.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -232,11 +234,11 @@
       </collision>
 
       <collision name="rod_collision">
-        <pose>0 0 0.015 0 -0 0</pose>
+        <pose>0 0 0.0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
-            <uri>model://x500_base/meshes/rod_2.stl</uri>
+            <uri>model://x500_base/meshes/interface_sensor_drone.stl</uri>
           </mesh>
         </geometry>
         <surface>
@@ -267,6 +269,7 @@
       </sensor>
     </link>
 
+    <!-- IMU -->
     <link name='/imu_link'>
       <pose>0 0 0.02 0 0 0</pose>
       <inertial>
@@ -301,6 +304,7 @@
       </axis>
     </joint>
 
+    <!-- Câmera -->
     <link name='cam_link'>
       <pose>0.15 -0 -0.07 0 0 0</pose>
       <inertial>
@@ -361,6 +365,7 @@
       <enable_wind>0</enable_wind>
       <kinematic>0</kinematic>
       <gravity>1</gravity>
+      <!--
       <visual name='cam_link'>
         <pose>0 0 0.0 0 1.5707 0</pose>
         <geometry>
@@ -384,6 +389,7 @@
         <transparency>0</transparency>
         <cast_shadows>1</cast_shadows>
       </visual>
+      -->
     </link>
 
     <joint name='camera_mount' type='fixed'>
@@ -811,7 +817,7 @@
       <hil_state_level>0</hil_state_level>
       <send_vision_estimation>0</send_vision_estimation>
       <send_odometry>1</send_odometry>
-      <enable_lockstep>1</enable_lockstep>
+      <enable_lockstep>0</enable_lockstep>
       <use_tcp>1</use_tcp>
       <motorSpeedCommandPubTopic>/gazebo/command/motor_speed</motorSpeedCommandPubTopic>
       <control_channels>

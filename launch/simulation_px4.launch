@@ -51,4 +51,8 @@
         <arg name="fcu_url" value="$(arg fcu_url)"/>
         <arg name="respawn_mavros" value="$(arg respawn_mavros)"/>
     </include>
+
+    <node name ="cv2gstreamer" pkg="tcc_docker" type ="cv2gstreamer.py" output="screen"/>
+    <!--<node name ="plot_forces" pkg="tcc_docker" type ="plot_forces.py" output="screen"/>-->
+
 </launch>

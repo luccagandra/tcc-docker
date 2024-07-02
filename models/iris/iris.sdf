@@ -142,7 +142,7 @@
         <pose>0 0 0.084 0 -0 0</pose>
         <geometry>
           <box>
-            <size>0.1 0.08 0.06</size>
+            <size>0.1 0.08 0.06</size> <!-- 0.1 0.08 0.06 -->
           </box>
         </geometry>
         <material>
@@ -172,13 +172,10 @@
           </box>
         </geometry>
         <material>
-          <diffuse>1.0 1.0 1.0</diffuse>
-          <specular>1.0 1.0 1.0</specular>
-          <pbr>
-            <metal>
-              <albedo_map>model://iris/materials/textures/nxp.png</albedo_map>
-            </metal>
-          </pbr>
+          <script>
+            <name>Gazebo/Gray</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
         </material>
       </visual>
 
@@ -191,13 +188,10 @@
           </box>
         </geometry>
         <material>
-          <diffuse>1.0 1.0 1.0</diffuse>
-          <specular>1.0 1.0 1.0</specular>
-          <pbr>
-            <metal>
-              <albedo_map>model://iris/materials/textures/nxp.png</albedo_map>
-            </metal>
-          </pbr>
+          <script>
+            <name>Gazebo/Gray</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
         </material>
       </visual>
 
@@ -210,13 +204,10 @@
           </box>
         </geometry>
         <material>
-          <diffuse>1.0 1.0 1.0</diffuse>
-          <specular>1.0 1.0 1.0</specular>
-          <pbr>
-            <metal>
-              <albedo_map>model://iris/materials/textures/nxp.png</albedo_map>
-            </metal>
-          </pbr>
+          <script>
+            <name>Gazebo/Gray</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
         </material>
       </visual>
 
@@ -229,13 +220,10 @@
           </box>
         </geometry>
         <material>
-          <diffuse>1.0 1.0 1.0</diffuse>
-          <specular>1.0 1.0 1.0</specular>
-          <pbr>
-            <metal>
-              <albedo_map>model://iris/materials/textures/nxp.png</albedo_map>
-            </metal>
-          </pbr>
+          <script>
+            <name>Gazebo/Gray</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
         </material>
       </visual>
 
@@ -388,7 +376,7 @@
       <pose>0 0 0.09 0 -0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>0.25</mass>
+        <mass>0.25</mass> <!--0.25-->
 
         <!-- CUBOID INERTIA, x,y,z,mass
           ixx="${mass*(y*y+z*z)/12}" ixy="0.0" ixz="0.0"
@@ -399,12 +387,12 @@
         <!-- x = 0.1 y = 0.08 z = 0.06, mass = 0.25 -->
 
         <inertia>
-          <ixx>0.00020833333</ixx>
+          <ixx>0.00020833333</ixx> <!-- 0.00020833333 -->
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.00028333333</iyy>
+          <iyy>0.00028333333</iyy> <!-- 0.00028333333 -->
           <iyz>0</iyz>
-          <izz>0.00034166666</izz>
+          <izz>0.00034166666</izz> <!-- 0.00034166666 -->
         </inertia>
       </inertial>
     </link>

@@ -57,7 +57,7 @@
           <material>
             <script>
               <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
+              <name>Gazebo/Grass</name>
             </script>
           </material>
         </visual>
@@ -92,50 +92,6 @@
       <elevation>0</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
-    <model name='Floor'>
-      <link name='main'>
-        <pose>0 0 0.01 0 -0 0</pose>
-        <collision name='main_Collision'>
-          <geometry>
-            <box>
-              <size>40 40 0.01</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='main_Visual'>
-          <geometry>
-            <box>
-              <size>40 40 0.01</size>
-            </box>
-          </geometry>
-          <material>
-            <script>
-              <uri>model://Floor/materials/scripts</uri>
-              <uri>model://Floor/materials/textures</uri>
-              <name>floor</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <static>1</static>
-      <pose>0.900292 0.473156 0 0 -0 0</pose>
-    </model>
     <model name='grey_wall'>
       <static>1</static>
       <link name='link'>
@@ -245,15 +201,15 @@
       </spot>
     </light>
     <state world_name='default'>
-      <sim_time>303 861000000</sim_time>
-      <real_time>306 503693853</real_time>
-      <wall_time>1719092332 558912398</wall_time>
-      <iterations>303861</iterations>
-      <model name='Floor'>
-        <pose>0.900292 0.473156 0 0 -0 0</pose>
+      <sim_time>1246 387000000</sim_time>
+      <real_time>28 67121633</real_time>
+      <wall_time>1719898095 103738590</wall_time>
+      <iterations>25961</iterations>
+      <model name='Floor_room'>
+        <pose>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='main'>
-          <pose>0.900292 0.473156 0.01 0 -0 0</pose>
+          <pose>0 0 0.01 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -292,16 +248,81 @@
       <light name='sun'>
         <pose>0 0 10 0 -0 0</pose>
       </light>
+      <light name='user_directional_light_0'>
+        <pose>0 0 10 0 -0 0</pose>
+      </light>
       <light name='user_spot_light_0'>
         <pose>0.020859 0.021608 8.55765 0 -0.966988 0</pose>
       </light>
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>-15.9664 -21.1772 15.148 0 0.351643 0.82419</pose>
+        <pose>0.765595 -0.113517 0.871257 0 0.74764 2.94098</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
+    <light name='user_directional_light_0' type='directional'>
+      <pose>3.54293 0.422665 1 0 -0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <direction>0.1 0.1 -0.9</direction>
+      <attenuation>
+        <range>20</range>
+        <constant>0.5</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <cast_shadows>1</cast_shadows>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <model name='Floor_room'>
+      <link name='main'>
+        <pose>0 0 0.01 0 -0 0</pose>
+        <collision name='main_Collision'>
+          <geometry>
+            <box>
+              <size>20 20 0.001</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='main_Visual'>
+          <geometry>
+            <box>
+              <size>20 20 0.001</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://Floor_room/materials/scripts</uri>
+              <uri>model://Floor_room/materials/textures</uri>
+              <name>floor_room</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <static>1</static>
+      <pose>0.034005 0.044995 0 0 -0 0</pose>
+    </model>
   </world>
 </sdf>

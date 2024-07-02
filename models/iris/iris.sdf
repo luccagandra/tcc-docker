@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sdf version='1.6'>
-  <model name='x500_base'>
+  <model name='iris'>
     <pose>0 0 .24 0 0 0</pose>
     <self_collide>false</self_collide>
     <static>false</static>
@@ -25,7 +25,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://x500_base/meshes/NXP_reverse.dae</uri>
+            <uri>model://iris/meshes/NXP_reverse.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -34,7 +34,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://x500_base/meshes/5010Base.dae</uri>
+            <uri>model://iris/meshes/5010Base.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -43,7 +43,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://x500_base/meshes/5010Base.dae</uri>
+            <uri>model://iris/meshes/5010Base.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -52,7 +52,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://x500_base/meshes/5010Base.dae</uri>
+            <uri>model://iris/meshes/5010Base.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -61,7 +61,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://x500_base/meshes/5010Base.dae</uri>
+            <uri>model://iris/meshes/5010Base.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -79,7 +79,7 @@
           <specular>1.0 1.0 1.0</specular>
           <pbr>
             <metal>
-              <albedo_map>model://x500_base/materials/textures/nxp.png</albedo_map>
+              <albedo_map>model://iris/materials/textures/nxp.png</albedo_map>
             </metal>
           </pbr>
         </material>
@@ -98,7 +98,7 @@
           <specular>1.0 1.0 1.0</specular>
           <pbr>
             <metal>
-              <albedo_map>model://x500_base/materials/textures/nxp.png</albedo_map>
+              <albedo_map>model://iris/materials/textures/nxp.png</albedo_map>
             </metal>
           </pbr>
         </material>
@@ -117,7 +117,7 @@
           <specular>1.0 1.0 1.0</specular>
           <pbr>
             <metal>
-              <albedo_map>model://x500_base/materials/textures/rd.png</albedo_map>
+              <albedo_map>model://iris/materials/textures/rd.png</albedo_map>
             </metal>
           </pbr>
         </material>
@@ -127,7 +127,7 @@
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
-            <uri>model://x500_base/meshes/interface_sensor_drone.stl</uri>
+            <uri>model://iris/meshes/rod_with_sensor.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -139,7 +139,7 @@
       </visual>
 
       <visual name='box_sensor_visual'>
-        <pose>0 0 0.09 0 -0 0</pose>
+        <pose>0 0 0.084 0 -0 0</pose>
         <geometry>
           <box>
             <size>0.1 0.08 0.06</size>
@@ -152,6 +152,104 @@
           </script>
         </material>
       </visual>
+
+      <visual name="CARBON_FIBER_TOP">
+        <pose>0 0 0.054 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://iris/meshes/carbon_fiber.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <visual name="SUPORT_1">
+        <pose>0.058 0.058 0.038 0 -0 -0.785</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <box>
+            <size>0.025 0.006 0.027</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://iris/materials/textures/nxp.png</albedo_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <visual name="SUPORT_2">
+        <pose>-0.058 0.058 0.038 0 -0 0.785</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <box>
+            <size>0.025 0.006 0.027</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://iris/materials/textures/nxp.png</albedo_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <visual name="SUPORT_3">
+        <pose>0.058 -0.058 0.038 0 -0 0.785</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <box>
+            <size>0.025 0.006 0.027</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://iris/materials/textures/nxp.png</albedo_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <visual name="SUPORT_4">
+        <pose>-0.058 -0.058 0.038 0 -0 -0.785</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <box>
+            <size>0.025 0.006 0.027</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://iris/materials/textures/nxp.png</albedo_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!--
+      <visual name="SUPORT_CB">
+        <pose>0 0 0.056 0 -0 0</pose> 
+        <geometry>
+          <mesh>
+            <scale>1 1 1.25</scale>
+            <uri>model://iris/meshes/stand_carbon_fiber.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      -->
 
       <collision name="base_link_collision_0">
         <pose>0 0 .007 0 0 0</pose>
@@ -254,7 +352,7 @@
         <geometry>
           <mesh>
             <scale>0.001 0.001 0.001</scale>
-            <uri>model://x500_base/meshes/interface_sensor_drone.stl</uri>
+            <uri>model://iris/meshes/interface_sensor_drone.stl</uri>
           </mesh>
         </geometry>
         <surface>
@@ -283,6 +381,59 @@
         </plugin>
         <pose frame=''>0 0 0 0 0 0</pose>
       </sensor>
+    </link>
+
+    <!-- SENSOR BOX -->
+    <link name='/sensor_box_link'>
+      <pose>0 0 0.09 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.25</mass>
+
+        <!-- CUBOID INERTIA, x,y,z,mass
+          ixx="${mass*(y*y+z*z)/12}" ixy="0.0" ixz="0.0"
+          iyy="${mass*(x*x+z*z)/12}" iyz="0.0"
+          izz="${mass*(y*y+x*x)/12}"/>
+        -->
+        
+        <!-- x = 0.1 y = 0.08 z = 0.06, mass = 0.25 -->
+
+        <inertia>
+          <ixx>0.00020833333</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00028333333</iyy>
+          <iyz>0</iyz>
+          <izz>0.00034166666</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <!-- SENSOR BOX -->
+    <link name='rod_link'>
+      <pose>0.165 0.001 -0.014 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.110</mass>
+
+
+        <!--<inertia CILINDER INERTIA, cable_length, cable_radius, mass
+          ixx="${cable_mass * (cable_length * cable_length + 3 * cable_radius * cable_radius) / 12}" ixy="0.0" ixz="0.0"
+          iyy="${cable_mass * (cable_length * cable_length + 3 * cable_radius * cable_radius) / 12}" iyz="0.0"
+          izz="${cable_mass * cable_radius * cable_radius / 2}"/>
+        </inertial>-->
+
+        <!--cable_length = 0.23, cable_radius = 0.01, mass = 0.110 -->
+
+        <inertia>
+          <ixx>0.00008433333</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00008433333</iyy>
+          <iyz>0</iyz>
+          <izz>0.0000055</izz>
+        </inertia>
+      </inertial>
     </link>
 
     <!-- IMU -->
@@ -322,7 +473,7 @@
 
     <!-- Câmera -->
     <link name='cam_link'>
-      <pose>0.15 -0 -0.07 0 0 0</pose>
+      <pose>0.15 -0 -0.11 0 0 0</pose>
       <inertial>
         <mass>0.01</mass>
         <inertia>
@@ -444,7 +595,7 @@
         <geometry>
           <mesh>
             <scale>0.8461538461538461 0.8461538461538461 0.8461538461538461</scale>
-            <uri>model://x500_base/meshes/1345_prop_ccw.stl</uri>
+            <uri>model://iris/meshes/1345_prop_ccw.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -459,7 +610,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://x500_base/meshes/5010Bell.dae</uri>
+            <uri>model://iris/meshes/5010Bell.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -467,7 +618,7 @@
         <pose>0 0 0 0 0 0 </pose>
         <geometry>
           <box>
-            <size>0.2792307692307692 0.016923076923076923 0.0008461538461538462</size>
+            <size>0.25 0.016923076923076923 0.0008461538461538462</size>
           </box>
         </geometry>
         <surface>
@@ -516,7 +667,7 @@
         <geometry>
           <mesh>
             <scale>0.8461538461538461 0.8461538461538461 0.8461538461538461</scale>
-            <uri>model://x500_base/meshes/1345_prop_ccw.stl</uri>
+            <uri>model://iris/meshes/1345_prop_ccw.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -531,7 +682,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://x500_base/meshes/5010Bell.dae</uri>
+            <uri>model://iris/meshes/5010Bell.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -539,7 +690,7 @@
         <pose>0 0 0 0 0 0 </pose>
         <geometry>
           <box>
-            <size>0.2792307692307692 0.016923076923076923 0.0008461538461538462</size>
+            <size>0.25 0.016923076923076923 0.0008461538461538462</size>
           </box>
         </geometry>
         <surface>
@@ -588,7 +739,7 @@
         <geometry>
           <mesh>
             <scale>0.8461538461538461 0.8461538461538461 0.8461538461538461</scale>
-            <uri>model://x500_base/meshes/1345_prop_cw.stl</uri>
+            <uri>model://iris/meshes/1345_prop_cw.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -603,7 +754,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://x500_base/meshes/5010Bell.dae</uri>
+            <uri>model://iris/meshes/5010Bell.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -611,7 +762,7 @@
         <pose>0 0 0 0 0 0 </pose>
         <geometry>
           <box>
-            <size>0.2792307692307692 0.016923076923076923 0.0008461538461538462</size>
+            <size>0.25 0.016923076923076923 0.0008461538461538462</size>
           </box>
         </geometry>
         <surface>
@@ -660,7 +811,7 @@
         <geometry>
           <mesh>
             <scale>0.8461538461538461 0.8461538461538461 0.8461538461538461</scale>
-            <uri>model://x500_base/meshes/1345_prop_cw.stl</uri>
+            <uri>model://iris/meshes/1345_prop_cw.stl</uri>
           </mesh>
         </geometry>
         <material>
@@ -675,7 +826,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://x500_base/meshes/5010Bell.dae</uri>
+            <uri>model://iris/meshes/5010Bell.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -683,7 +834,7 @@
         <pose>0 0 0 0 0 0 </pose>
         <geometry>
           <box>
-            <size>0.2792307692307692 0.016923076923076923 0.0008461538461538462</size>
+            <size>0.25 0.016923076923076923 0.0008461538461538462</size>
           </box>
         </geometry>
         <surface>

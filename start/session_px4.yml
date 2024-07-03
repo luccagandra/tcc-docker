@@ -1,0 +1,19 @@
+name: TCC - Noetic
+root: ./
+startup_window: roscore
+pre_window: |
+  export WORLD_NAME=wall_light;
+windows:
+  - roscore:
+      layout:
+      panes:
+        - |
+          #waitForRos
+          roslaunch tcc_docker simulation_px4.launch
+  - user:
+      layout: tiled
+      panes:
+        - |
+          # Tela do user
+        - |
+          # Tela do user

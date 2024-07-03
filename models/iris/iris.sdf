@@ -123,10 +123,10 @@
         </material>
       </visual>
       <visual name='rod_visual'>
-        <pose>0.165 0.001 -0.014 0 -0 0</pose>
+        <pose>0.17 0.001 -0.014 0 -0 0</pose>
         <geometry>
           <mesh>
-            <scale>0.001 0.001 0.001</scale>
+            <scale>0.0012 0.001 0.001</scale>
             <uri>model://iris/meshes/rod_with_sensor.stl</uri>
           </mesh>
         </geometry>
@@ -336,10 +336,10 @@
       </collision>
 
       <collision name="rod_collision">
-        <pose>0.165 0.001 -0.014 0 -0 0</pose>
+        <pose>0.17 0.001 -0.014 0 -0 0</pose>
         <geometry>
           <mesh>
-            <scale>0.001 0.001 0.001</scale>
+            <scale>0.0012 0.001 0.001</scale>
             <uri>model://iris/meshes/interface_sensor_drone.stl</uri>
           </mesh>
         </geometry>
@@ -602,6 +602,7 @@
           </mesh>
         </geometry>
       </visual>
+      <!--
       <collision name="rotor_0_collision">
         <pose>0 0 0 0 0 0 </pose>
         <geometry>
@@ -621,6 +622,7 @@
           </friction>
         </surface>
       </collision>
+      -->
     </link>
     <joint name="rotor_0_joint" type="revolute">
       <parent>base_link</parent>
@@ -674,6 +676,7 @@
           </mesh>
         </geometry>
       </visual>
+      <!--
       <collision name="rotor_1_collision">
         <pose>0 0 0 0 0 0 </pose>
         <geometry>
@@ -693,6 +696,7 @@
           </friction>
         </surface>
       </collision>
+      -->
     </link>
     <joint name="rotor_1_joint" type="revolute">
       <parent>base_link</parent>
@@ -746,6 +750,7 @@
           </mesh>
         </geometry>
       </visual>
+      <!--
       <collision name="rotor_2_collision">
         <pose>0 0 0 0 0 0 </pose>
         <geometry>
@@ -765,6 +770,7 @@
           </friction>
         </surface>
       </collision>
+      -->
     </link>
     <joint name="rotor_2_joint" type="revolute">
       <parent>base_link</parent>
@@ -818,6 +824,7 @@
           </mesh>
         </geometry>
       </visual>
+      <!--
       <collision name="rotor_3_collision">
         <pose>0 0 0 0 0 0 </pose>
         <geometry>
@@ -837,6 +844,7 @@
           </friction>
         </surface>
       </collision>
+      -->
     </link>
     <joint name="rotor_3_joint" type="revolute">
       <parent>base_link</parent>
@@ -928,7 +936,7 @@
       <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
     </plugin>
     <include>
-      <uri>model://gps</uri>
+      <uri>model://gps_module</uri>
       <pose>0.05 0 0.04 0 0 0</pose>
       <name>gps0</name>
     </include>
@@ -942,9 +950,9 @@
     <plugin name='magnetometer_plugin' filename='libgazebo_magnetometer_plugin.so'>
       <robotNamespace/>
       <pubRate>100</pubRate>
-      <noiseDensity>0.0004</noiseDensity>
-      <randomWalk>6.4e-06</randomWalk>
-      <biasCorrelationTime>600</biasCorrelationTime>
+      <noiseDensity>0.0004</noiseDensity> <!-- 0.0004 -->
+      <randomWalk>6.4e-06</randomWalk> <!-- 6.4e-06 -->
+      <biasCorrelationTime>600</biasCorrelationTime> <!-- 600 -->
       <magTopic>/mag</magTopic>
     </plugin>
     <plugin name='barometer_plugin' filename='libgazebo_barometer_plugin.so'>
@@ -1077,14 +1085,14 @@
       <robotNamespace/>
       <linkName>/imu_link</linkName>
       <imuTopic>/imu</imuTopic>
-      <gyroscopeNoiseDensity>0.00018665</gyroscopeNoiseDensity>
-      <gyroscopeRandomWalk>3.8785e-05</gyroscopeRandomWalk>
-      <gyroscopeBiasCorrelationTime>1000.0</gyroscopeBiasCorrelationTime>
-      <gyroscopeTurnOnBiasSigma>0.0087</gyroscopeTurnOnBiasSigma>
-      <accelerometerNoiseDensity>0.00186</accelerometerNoiseDensity>
-      <accelerometerRandomWalk>0.006</accelerometerRandomWalk>
-      <accelerometerBiasCorrelationTime>300.0</accelerometerBiasCorrelationTime>
-      <accelerometerTurnOnBiasSigma>0.196</accelerometerTurnOnBiasSigma>
+      <gyroscopeNoiseDensity>0.0</gyroscopeNoiseDensity> <!-- 0.00018665 -->
+      <gyroscopeRandomWalk>0.0</gyroscopeRandomWalk> <!-- 3.8785e-05 -->
+      <gyroscopeBiasCorrelationTime>0.0</gyroscopeBiasCorrelationTime> <!-- 1000.0 -->
+      <gyroscopeTurnOnBiasSigma>0.0</gyroscopeTurnOnBiasSigma> <!-- 0.0087 -->
+      <accelerometerNoiseDensity>0.0</accelerometerNoiseDensity> <!-- 0.00186 -->
+      <accelerometerRandomWalk>0.0</accelerometerRandomWalk> <!-- 0.006 -->
+      <accelerometerBiasCorrelationTime>0.0</accelerometerBiasCorrelationTime> <!-- 300.0 -->
+      <accelerometerTurnOnBiasSigma>0.0</accelerometerTurnOnBiasSigma> <!-- 0.196 -->
     </plugin>
   </model>
 </sdf>

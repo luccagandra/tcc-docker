@@ -5,7 +5,7 @@ from sensor_msgs.msg import Joy
 from std_msgs.msg import Float32, Int32, Float64
 from mavros_msgs.srv import CommandTOL
 import math
-from geometry_msgs.msg import Twist, PoseStamped
+from geometry_msgs.msg import Twist, PoseWithCovarianceStamped
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
 from nav_msgs.msg import Odometry
 import os
@@ -24,7 +24,7 @@ class Dualshock:
         self.land_client = rospy.ServiceProxy(
             "/mavros/cmd/land", CommandTOL)
         
-        rospy.Subscriber("/icts_uav/odometry", Odometry, self.update_odom)
+        rospy.Subscriber("/mavros/global_position/local", Odometry, self.update_odom)
 
         self.velocity = 2
         self.velocity_angular = 0.03
@@ -59,18 +59,8 @@ class Dualshock:
         self.o = but[2]
         self.tri = but[1]
         self.square = but[0]
-        self.direc_left = but[14]
-        self.direc_right = but[16]
-        self.direc_up = but[15]
-        self.direc_down = but[17]
-        self.l3 = but[12]
-        self.r3 = but[13]
-        self.options = but[9]
-        self.share = but[8]
         self.l1 = but[4]
         self.r1 = but[6]
-        self.touchpad_button = but[11]
-        self.ps = but[10]
         self.l2_total = but[5]
         self.r2_total = but[7]
 

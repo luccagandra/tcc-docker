@@ -52,7 +52,14 @@
         <arg name="respawn_mavros" value="$(arg respawn_mavros)"/>
     </include>
 
+    <!--
+    <include file="$(find pacmod2_game_control)/launch/px4.launch">
+        <arg name="controller_type" value="LOGITECH_F310"/>
+    </include>
+    -->
+
     <node name ="cv2gstreamer" pkg="tcc_docker" type ="cv2gstreamer.py" output="screen"/>
-    <!--<node name ="plot_forces" pkg="tcc_docker" type ="plot_forces.py" output="screen"/>-->
+    <node name ="plot_forces" pkg="tcc_docker" type ="plot_forces.py" output="screen"/>
+    <node name ="logitech2mavros" pkg="tcc_docker" type ="logitech2mavros.py" output="screen"/>
 
 </launch>

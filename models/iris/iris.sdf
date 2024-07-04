@@ -602,7 +602,6 @@
           </mesh>
         </geometry>
       </visual>
-      <!--
       <collision name="rotor_0_collision">
         <pose>0 0 0 0 0 0 </pose>
         <geometry>
@@ -622,7 +621,6 @@
           </friction>
         </surface>
       </collision>
-      -->
     </link>
     <joint name="rotor_0_joint" type="revolute">
       <parent>base_link</parent>
@@ -676,7 +674,6 @@
           </mesh>
         </geometry>
       </visual>
-      <!--
       <collision name="rotor_1_collision">
         <pose>0 0 0 0 0 0 </pose>
         <geometry>
@@ -696,7 +693,6 @@
           </friction>
         </surface>
       </collision>
-      -->
     </link>
     <joint name="rotor_1_joint" type="revolute">
       <parent>base_link</parent>
@@ -750,7 +746,6 @@
           </mesh>
         </geometry>
       </visual>
-      <!--
       <collision name="rotor_2_collision">
         <pose>0 0 0 0 0 0 </pose>
         <geometry>
@@ -770,7 +765,6 @@
           </friction>
         </surface>
       </collision>
-      -->
     </link>
     <joint name="rotor_2_joint" type="revolute">
       <parent>base_link</parent>
@@ -824,7 +818,6 @@
           </mesh>
         </geometry>
       </visual>
-      <!--
       <collision name="rotor_3_collision">
         <pose>0 0 0 0 0 0 </pose>
         <geometry>
@@ -844,7 +837,6 @@
           </friction>
         </surface>
       </collision>
-      -->
     </link>
     <joint name="rotor_3_joint" type="revolute">
       <parent>base_link</parent>

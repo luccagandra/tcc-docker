@@ -14,7 +14,7 @@ from cv_bridge import CvBridge, CvBridgeError
 class ListenContact:
     def __init__(self):
         rospy.init_node('listen2contacts')
-        rospy.Subscriber("/rod/contact", ContactsState, self.callback)
+        rospy.Subscriber("/rod/contact", ContactsState, self.callback, queue_size=1)
 
         self.bridge = CvBridge()
 
@@ -32,10 +32,8 @@ class ListenContact:
             force = msg.states[0].total_wrench.force
             torque = msg.states[0].total_wrench.torque
             self.publish_force_and_torque(force, torque)
-
-        if self.first_iteration:
+        else:
             self.plot_x(0)
-            self.first_iteration = False
 
     def publish_force_and_torque(self, force, torque):
         vector = Vector3()
@@ -56,7 +54,7 @@ class ListenContact:
         self.y_data.append(vec_x)
 
         plt.clf()  # Limpar a figura para evitar sobreposição
-        plt.plot(self.x_data, self.y_data, 'o')  # Plotar os dados
+        plt.plot(self.x_data, self.y_data, '-')  # Plotar os dados
 
         plt.grid(True)  # Adicionar grade
         plt.xlabel('Time')

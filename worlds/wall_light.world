@@ -182,24 +182,6 @@
       </link>
       <pose>-0.255967 6.24221 0 0 -0 0</pose>
     </model>
-    <light name='user_spot_light_0' type='spot'>
-      <pose>2.97984 0.967212 1 0 -0 0</pose>
-      <diffuse>0.5 0.5 0.5 1</diffuse>
-      <specular>0.1 0.1 0.1 1</specular>
-      <direction>0 0 -1</direction>
-      <attenuation>
-        <range>20</range>
-        <constant>0.5</constant>
-        <linear>0.01</linear>
-        <quadratic>0.001</quadratic>
-      </attenuation>
-      <cast_shadows>0</cast_shadows>
-      <spot>
-        <inner_angle>0.6</inner_angle>
-        <outer_angle>1</outer_angle>
-        <falloff>1</falloff>
-      </spot>
-    </light>
     <state world_name='default'>
       <sim_time>1246 387000000</sim_time>
       <real_time>28 67121633</real_time>
@@ -248,12 +230,6 @@
       <light name='sun'>
         <pose>0 0 10 0 -0 0</pose>
       </light>
-      <light name='user_directional_light_0'>
-        <pose>0 0 10 0 -0 0</pose>
-      </light>
-      <light name='user_spot_light_0'>
-        <pose>0.020859 0.021608 8.55765 0 -0.966988 0</pose>
-      </light>
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
@@ -262,24 +238,6 @@
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
-    <light name='user_directional_light_0' type='directional'>
-      <pose>3.54293 0.422665 1 0 -0 0</pose>
-      <diffuse>0.5 0.5 0.5 1</diffuse>
-      <specular>0.1 0.1 0.1 1</specular>
-      <direction>0.1 0.1 -0.9</direction>
-      <attenuation>
-        <range>20</range>
-        <constant>0.5</constant>
-        <linear>0.01</linear>
-        <quadratic>0.001</quadratic>
-      </attenuation>
-      <cast_shadows>1</cast_shadows>
-      <spot>
-        <inner_angle>0</inner_angle>
-        <outer_angle>0</outer_angle>
-        <falloff>0</falloff>
-      </spot>
-    </light>
     <model name='Floor_room'>
       <link name='main'>
         <pose>0 0 0.01 0 -0 0</pose>

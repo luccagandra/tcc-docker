@@ -118,50 +118,11 @@ class Dualshock:
             rospy.sleep(1)
             os.system("rosrun mavros mavsys mode -c OFFBOARD")
 
-
-        if self.tri == 1 and self.execution == 1:
-            self.estimate_tower()
-            self.execution += 1         
-            rospy.sleep(2)
-
-        if self.tri == 1 and self.execution == 0:
-            self.save_x1()
-            self.execution += 1
-            print("x1 y1 yaw1", self.x1, self.y1, self.yaw1)
-            rospy.sleep(2)
-
         #    os.system("rosrun mavros mavcmd takeoff 0 0 0 0 2")
 
         #if self.tri == 1:
         #    os.system("rosservice call /mavros/set_stream_rate 0 10 1")
         #    os.system("rosrun mavros mavsys mode -c OFFBOARD")
-
-    def save_x1(self):
-        self.x1 = self.x_curr
-        self.y1 = self.y_curr
-        self.yaw1 = self.heading
-
-    def estimate_tower(self):
-        
-        x1 = self.x1
-        y1 = self.y1
-        yaw1 = math.tan(self.yaw1)
-
-        x2 = self.x_curr
-        y2 = self.y_curr
-        yaw2 = math.tan(self.heading)
-
-        print("x1 y1 yaw1", x1, y1, yaw1)
-        print("x2 y2 yaw2", x2, y2, yaw2)
-
-        b1 = y1 - yaw1*x1
-        b2 = y2 - yaw2*x2
-
-        xt = (b1 - b2)/(yaw2 - yaw1)
-        yt = yaw2*xt + b2
-        yt1 = yaw1*xt + b1
-
-        print("Posição aproximada da torre: ", xt, yt1)
 
     def publish_message(self, event):
         self.pub.publish(self.message)

@@ -55,21 +55,19 @@ class Dualshock:
         axes = msg.axes
         but = msg.buttons
 
-        self.x = but[3]
+        self.x = but[1]
         self.o = but[2]
-        self.tri = but[1]
+        self.tri = but[3]
         self.square = but[0]
         self.l1 = but[4]
-        self.r1 = but[6]
-        self.l2_total = but[5]
+        self.r1 = but[5]
+        self.l2_total = but[6]
         self.r2_total = but[7]
 
         self.l_hor = axes[0]
         self.l_vert = axes[1]
         self.r_vert = axes[3]
         self.r_hor = -axes[2]
-        self.l2 = axes[4]
-        self.r2 = axes[5]
 
         self.main()
 

@@ -27,7 +27,7 @@ class Dualshock:
         rospy.Subscriber("/mavros/global_position/local", Odometry, self.update_odom)
 
         self.velocity = 2
-        self.velocity_angular = 0.03
+        self.velocity_angular = 0.5
         self.heading = 0.0
         self.message = Twist()
         self.execution = 0
@@ -93,21 +93,23 @@ class Dualshock:
         if not z_passed == True:
             self.message.linear.z = 0
 
-        if self.l_hor > 0.1 or self.l_hor < -0.1:
+        # Roll -> Movimento para esquerda e direita (linear.y)
+        if self.r_hor > 0.1 or self.r_hor < -0.1:
             self.message.linear.y = self.velocity * self.l_hor
         else:
             self.message.linear.y = 0
 
+        # Pitch -> Movimento para frente e trás (linear.x)
         if self.l_vert > 0.1 or self.l_vert < -0.1:
             self.message.linear.x = self.velocity * self.l_vert
         else:
             self.message.linear.x = 0
 
-        if self.r_hor > 0.1:
-            self.message.angular.z = -self.velocity_angular * abs(self.r_hor)
-
-        elif self.r_hor < -0.1:
-            self.message.angular.z = self.velocity_angular * abs(self.r_hor)
+        # Movimento angular L1 e R1
+        if self.l1:
+            self.message.angular.z = -self.velocity_angular
+        elif self.r1:
+            self.message.angular.z = self.velocity_angular
         else:
             self.message.angular.z = 0
 

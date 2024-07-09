@@ -18,6 +18,9 @@ class ListenContact:
 
         self.bridge = CvBridge()
 
+        self.pub = rospy.Publisher('/rod/force_vector', Vector3, queue_size=100)
+        self.pub2 = rospy.Publisher('/rod/torque_vector', Vector3, queue_size=100)
+
         self.pub_image = rospy.Publisher('/image_plot', Image, queue_size=10)
         
         self.counter = 0
@@ -33,7 +36,17 @@ class ListenContact:
             torque = msg.states[0].total_wrench.torque
             self.publish_force_and_torque(force, torque)
         else:
-            self.plot_x(0)
+            force = Vector3()
+            torque = Vector3()
+
+            force.x = 0
+            force.y = 0
+            force.z = 0
+            torque.x = 0
+            torque.y = 0
+            torque.z = 0
+
+            self.publish_force_and_torque(force, torque)
 
     def publish_force_and_torque(self, force, torque):
         vector = Vector3()
@@ -47,6 +60,8 @@ class ListenContact:
         vector_t.y = torque.y
         vector_t.z = torque.z
 
+        self.pub.publish(vector)
+        self.pub2.publish(vector_t)
         self.plot_x(vector.x)
 
     def plot_x(self, vec_x):

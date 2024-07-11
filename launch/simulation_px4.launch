@@ -61,5 +61,6 @@
     <node name ="cv2gstreamer" pkg="tcc_docker" type ="cv2gstreamer.py" output="screen"/>
     <node name ="plot_forces" pkg="tcc_docker" type ="plot_forces.py" output="screen"/>
     <node name ="logitech2mavros" pkg="tcc_docker" type ="logitech2mavros.py" output="screen"/>
+    <!--<node name ="get_motor_speed" pkg="tcc_docker" type ="get_motor_speed.py" output="screen"/>-->
 
 </launch>

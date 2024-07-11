@@ -10,6 +10,8 @@ windows:
         - |
           #waitForRos
           roslaunch tcc_docker simulation_px4.launch
+        - |
+          sleep 10; cd /root/simulator/src/tcc-docker/scripts && python3 get_motor_speed.py
   - user:
       layout: tiled
       panes:

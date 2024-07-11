@@ -21,10 +21,10 @@ def publish_setpoint():
     setpoint_msg.pose.position.x = 0.0
     setpoint_msg.pose.position.y = 0.0
     setpoint_msg.pose.position.z = 2.0
-    setpoint_msg.pose.orientation.x = 0.0
-    setpoint_msg.pose.orientation.y = 0.0
-    setpoint_msg.pose.orientation.z = 0.0
-    setpoint_msg.pose.orientation.w = 0.0
+    #setpoint_msg.pose.orientation.x = 0.0
+    #setpoint_msg.pose.orientation.y = 0.0
+    #setpoint_msg.pose.orientation.z = 0.0
+    #setpoint_msg.pose.orientation.w = 0.0
     
     # Publica a mensagem a cada 1/30 segundos (30 Hz)
     while not rospy.is_shutdown():

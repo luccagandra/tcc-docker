@@ -62,7 +62,7 @@ class ListenContact:
 
         self.pub.publish(vector)
         self.pub2.publish(vector_t)
-        self.plot_x(vector.x)
+        #self.plot_x(vector.x)
 
     def plot_x(self, vec_x):
         self.x_data.append(self.counter)

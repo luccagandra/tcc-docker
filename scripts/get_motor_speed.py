@@ -14,27 +14,30 @@ def publish_motor():
 
     model_coordinates = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
     blockName = str("iris")
-    resp_coordinates = [0, 0, 0, 0]
-    resp_coordinates[0] = model_coordinates(blockName, "rotor_0")
-    resp_coordinates[1] = model_coordinates(blockName, "rotor_1")
-    resp_coordinates[2] = model_coordinates(blockName, "rotor_2")
-    resp_coordinates[3] = model_coordinates(blockName, "rotor_3")
 
     rate = rospy.Rate(30)
     
-    msg_motor0 = Float32()
-    msg_motor1 = Float32()
-    msg_motor2 = Float32()
-    msg_motor3 = Float32()
-
-    """
-    Measure is in rad/s
-    1 rad/s = 9.5493 RPM
-    velocityslowdownsim = 10
-    """
     while not rospy.is_shutdown():
-        msg_motor0.data = round(resp_coordinates[0].twist.angular.z * 9.5493 * 10, 2)
-        msg_motor1.data = round(resp_coordinates[1].twist.angular.z * 9.5493 * 10, 2)
+        resp_coordinates = [0, 0, 0, 0]
+        resp_coordinates[0] = model_coordinates(blockName, "rotor_0")
+        resp_coordinates[1] = model_coordinates(blockName, "rotor_1")
+        resp_coordinates[2] = model_coordinates(blockName, "rotor_2")
+        resp_coordinates[3] = model_coordinates(blockName, "rotor_3")
+
+        msg_motor0 = Float32()
+        msg_motor1 = Float32()
+        msg_motor2 = Float32()
+        msg_motor3 = Float32()
+
+        """
+        Measure is in rad/s
+        1 rad/s = 9.5493 RPM
+        velocityslowdownsim = 10
+        """
+
+        # Queremos apenas velocidade positiva
+        msg_motor0.data = -round(resp_coordinates[0].twist.angular.z * 9.5493 * 10, 2)
+        msg_motor1.data = -round(resp_coordinates[1].twist.angular.z * 9.5493 * 10, 2)
         msg_motor2.data = round(resp_coordinates[2].twist.angular.z * 9.5493 * 10, 2)
         msg_motor3.data = round(resp_coordinates[3].twist.angular.z * 9.5493 * 10, 2)
         

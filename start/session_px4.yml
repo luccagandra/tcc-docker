@@ -16,6 +16,6 @@ windows:
       layout: tiled
       panes:
         - |
-          # Tela do user
+          cd /root/simulator/src/tcc-docker/scripts
         - |
-          # Tela do user
+          cd /root/simulator/src/tcc-docker/scripts

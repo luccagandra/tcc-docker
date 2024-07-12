@@ -18,8 +18,8 @@ class SendGoalObstacle:
         self.arm_service = rospy.ServiceProxy('/mavros/cmd/arming', CommandBool)
         self.set_mode_service = rospy.ServiceProxy('/mavros/set_mode', SetMode)
 
-        self.x, self.y, self.z, self.yaw = input("x y z yaw(rad): ").split()
-        self.x, self.y, self.z, self.yaw = float(self.x), float(self.y), float(self.z), float(self.yaw)
+        self.x, self.y, self.z = input("x y z: ").split()
+        self.x, self.y, self.z= float(self.x), float(self.y), float(self.z)
 
         self.x_current = 0
         self.y_current = 0
@@ -27,7 +27,7 @@ class SendGoalObstacle:
 
         self.rate = rospy.Rate(20)  # 20 Hz
 
-        self.first_iteration = True
+        self.iteration = 0
 
         while not rospy.is_shutdown():
             self.publish_setpoint()
@@ -55,10 +55,12 @@ class SendGoalObstacle:
         setpoint.position.y = self.y
         setpoint.position.z = self.z
 
-        if self.first_iteration:
-            self.first_iteration = False
+        if self.iteration == 1:
+            self.iteration = 2
+            self.set_mode('OFFBOARD')
 
-            #self.set_mode('OFFBOARD')
+        if self.iteration == 0:
+            self.iteration = 1
             self.arm()
 
         setpoint.header.stamp = rospy.Time.now()
@@ -69,8 +71,8 @@ class SendGoalObstacle:
             return
         try:
             if sys.stdin in select.select([sys.stdin], [], [], 0)[0]:
-                self.x, self.y, self.z, self.yaw = input("x y z yaw(rad): ").split()
-                self.x, self.y, self.z, self.yaw = float(self.x), float(self.y), float(self.z), float(self.yaw)
+                self.x, self.y, self.z = input("x y z: ").split()
+                self.x, self.y, self.z = float(self.x), float(self.y), float(self.z)
         except Exception as e:
             rospy.logwarn("Failed to get new setpoint: %s", e)
 

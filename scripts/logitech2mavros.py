@@ -68,6 +68,7 @@ class Dualshock:
         self.l_vert = axes[1]
         self.r_vert = axes[3]
         self.r_hor = -axes[2]
+        self.R2 = axes[5]
 
         self.main()
 
@@ -82,11 +83,11 @@ class Dualshock:
 
         z_passed = False
 
-        if self.r2_total == 1:
+        if self.R2 > 0.1:
             self.message.linear.z = 0.75*self.velocity
             z_passed = True
 
-        if self.l2_total == 1:
+        if self.R2 < -0.1:
             self.message.linear.z = -0.75*self.velocity 
             z_passed = True
 

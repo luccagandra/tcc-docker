@@ -23,7 +23,7 @@ class GStreamerConverter:
         self.rgb_image = None
         self.plot_image = None
 
-        self.matplotlib = rospy.get_param('/matplotlib')
+        self.matplotlib = rospy.get_param('/cv2gstreamer/matplotlib')
 
         # Define the gstreamer sink
         #self.gst_str_rtp = "appsrc ! videoconvert ! x264enc tune=zerolatency bitrate=1000000 speed-preset=superfast ! h264parse ! rtph264pay ! udpsink host=127.0.0.1 port=5600"
@@ -39,7 +39,10 @@ class GStreamerConverter:
         except CvBridgeError as e:
             print(e)
         
-        if self.plot_image is not None:
+        if self.plot_image is not None and self.matplotlib == True:
+            self.gstreamer()
+
+        if self.matplotlib == False:
             self.gstreamer()
 
     def callback_plot(self, msg):

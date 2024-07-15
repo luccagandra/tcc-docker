@@ -23,7 +23,7 @@ class ListenContact:
 
         self.pub_image = rospy.Publisher('/image_plot', Image, queue_size=10)
         
-        self.matplotlib = rospy.get_param('/matplotlib') 
+        self.matplotlib = rospy.get_param('/plot_forces/matplotlib') 
 
         self.counter = 0
         self.x_data = []

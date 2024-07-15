@@ -15,8 +15,8 @@
     <arg name="world" default="$(find tcc_docker)/worlds/wall_light.world"/>
     <arg name="sdf" default="$(find tcc_docker)/models/$(arg vehicle)/$(arg vehicle).sdf"/>
 
-    <arg name="use_controller" default="true"/>
-    <arg name="send_plot_to_qground" default="true"/>
+    <arg name="use_controller" default="false"/>
+    <arg name="send_plot_to_qground" default="false"/>
 
     <!-- gazebo configs -->
     <arg name="gui" default="true"/>
@@ -57,7 +57,7 @@
 
     <!-- If controller, use pacmod2 and logitech2mavros-->
     <group if="$(arg use_controller)">
-        <include file="$(find pacmod2_game_control)/launch/px4.launch">
+        <include file="$(find pacmod2_game_control)/launch/pacmod2_game_control.launch">
             <arg name="controller_type" value="LOGITECH_F310"/>
         </include>
 
@@ -66,12 +66,12 @@
 
     <!-- If plot, send gstreamer pipe with matplotlib. If not, we don't need to calculate it and gstreamer pipe only has to contain the frontal image-->
     
-    <node name ="plot_forces" pkg="tcc_docker" type ="plot_forces.py" output="screen"/>
-        <param name="matplotlib" value="$(arg send_plot_to_qground)" /> 
+    <node name ="plot_forces" pkg="tcc_docker" type ="plot_forces.py" output="screen">
+        <param name="/matplotlib" value="$(arg send_plot_to_qground)" /> 
     </node>
 
-    <node name ="cv2gstreamer" pkg="tcc_docker" type ="cv2gstreamer.py" output="screen"/>
-        <param name="matplotlib" value="$(arg send_plot_to_qground)" /> 
+    <node name ="cv2gstreamer" pkg="tcc_docker" type ="cv2gstreamer.py" output="screen">
+        <param name="/matplotlib" value="$(arg send_plot_to_qground)" /> 
     </node>
 
 </launch>

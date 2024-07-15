@@ -23,6 +23,8 @@ class ListenContact:
 
         self.pub_image = rospy.Publisher('/image_plot', Image, queue_size=10)
         
+        self.matplotlib = rospy.get_param('/matplotlib') 
+
         self.counter = 0
         self.x_data = []
         self.y_data = []
@@ -62,7 +64,9 @@ class ListenContact:
 
         self.pub.publish(vector)
         self.pub2.publish(vector_t)
-        #self.plot_x(vector.x)
+
+        if self.matplotlib:
+           self.plot_x(vector.x)
 
     def plot_x(self, vec_x):
         self.x_data.append(self.counter)

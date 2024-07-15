@@ -10,12 +10,16 @@ windows:
         - |
           #waitForRos
           roslaunch tcc_docker simulation_px4.launch
+          use_controller:=true
+          send_plot_to_qground:=false
         - |
           sleep 10; cd /root/simulator/src/tcc-docker/scripts && python3 get_motor_speed.py
   - user:
       layout: tiled
       panes:
         - |
-          cd /root/simulator/src/tcc-docker/scripts
+          cd /root/simulator/src/tcc-docker/scripts & python3 waypoint.py
+        - |
+          plotjuggler
         - |
           cd /root/simulator/src/tcc-docker/scripts

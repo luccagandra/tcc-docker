@@ -23,6 +23,8 @@ class GStreamerConverter:
         self.rgb_image = None
         self.plot_image = None
 
+        self.matplotlib = rospy.get_param('/matplotlib')
+
         # Define the gstreamer sink
         #self.gst_str_rtp = "appsrc ! videoconvert ! x264enc tune=zerolatency bitrate=1000000 speed-preset=superfast ! h264parse ! rtph264pay ! udpsink host=127.0.0.1 port=5600"
         #self.gst_str_rtp = "appsrc ! videoconvert ! x264enc bitrate=1000000 speed-preset=superfast ! h264parse ! rtph264pay ! udpsink host=127.0.0.1 port=5600"
@@ -51,19 +53,28 @@ class GStreamerConverter:
     
     def gstreamer(self):
         
-        img_out = np.vstack((self.rgb_image, self.plot_image))
+        if self.matplotlib:
+            img_out = np.vstack((self.rgb_image, self.plot_image))
 
-        cv2.resize(img_out, (0,0), fx=0.5, fy=0.5) 
-        
-        # GStreamer
-        # Cam properties
-        fps = 30.
-        frame_width = 640
-        frame_height = 960
+            cv2.resize(img_out, (0,0), fx=0.5, fy=0.5) 
+            
+            # GStreamer
+            # Cam properties
+            frame_width = 640
+            frame_height = 960
 
-        # Pipe
-        self.out = cv2.VideoWriter(self.gst_str_rtp, 0, 30, (frame_width, frame_height), True)
-        self.out.write(img_out)
+            # Pipe
+            self.out = cv2.VideoWriter(self.gst_str_rtp, 0, 30, (frame_width, frame_height), True)
+            self.out.write(img_out)
+        else:
+            img_out = self.rgb_image
+
+            # Cam properties
+            frame_width = 640
+            frame_height = 480
+
+            self.out = cv2.VideoWriter(self.gst_str_rtp, 0, 30, (frame_width, frame_height), True)
+            self.out.write(img_out)
 
 if __name__ == '__main__':
     loop = GStreamerConverter()

@@ -372,7 +372,7 @@
     </link>
 
     <!-- SENSOR BOX -->
-    <link name='/sensor_box_link'>
+    <link name='sensor_box_link'>
       <pose>0 0 0.09 0 -0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
@@ -396,6 +396,24 @@
         </inertia>
       </inertial>
     </link>
+
+    <joint name='sensor_box_joint' type='fixed'>
+      <parent>base_link</parent>
+      <child>sensor_box_link</child>
+      <pose>0 0 0 0 -0 0</pose>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+          <suspension>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </suspension>
+        </ode>
+      </physics>
+    </joint>
 
     <!-- SENSOR BOX -->
     <link name='rod_link'>
@@ -423,6 +441,24 @@
         </inertia>
       </inertial>
     </link>
+
+    <joint name='rod_joint' type='fixed'>
+      <parent>base_link</parent>
+      <child>rod_link</child>
+      <pose>0 0 0 0 -0 0</pose>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+          <suspension>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </suspension>
+        </ode>
+      </physics>
+    </joint>
 
     <!-- IMU -->
     <link name='/imu_link'>

@@ -1,33 +1,33 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <root>
- <tabbed_widget parent="main_window" name="Main Window">
+ <tabbed_widget name="Main Window" parent="main_window">
   <Tab containers="1" tab_name="Posições">
    <Container>
-    <DockSplitter orientation="-" count="2" sizes="0.5;0.5">
+    <DockSplitter orientation="-" count="2" sizes="0.500642;0.499358">
      <DockSplitter orientation="|" count="2" sizes="0.5;0.5">
       <DockArea name="x (metros) / t (seg)">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
       <DockArea name="y (metros) / t (seg)">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
      </DockSplitter>
-     <DockSplitter orientation="|" count="2" sizes="0.5;0.5">
+     <DockSplitter orientation="|" count="2" sizes="0.503077;0.496923">
       <DockArea name="z (metros) / t (seg)">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
       <DockArea name="y (metros) / x (metros)">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="XYPlot" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
@@ -38,22 +38,22 @@
   <Tab containers="1" tab_name="Ângulos de Euler">
    <Container>
     <DockSplitter orientation="-" count="1" sizes="1">
-     <DockSplitter orientation="|" count="3" sizes="0.333542;0.332915;0.333542">
+     <DockSplitter orientation="|" count="3" sizes="0.33282;0.334361;0.33282">
       <DockArea name="Roll (rad) / t (seg)">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
       <DockArea name="Pitch (rad) / t (seg)">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
       <DockArea name="Yaw (rad) / t (seg)">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
@@ -63,43 +63,43 @@
   </Tab>
   <Tab containers="1" tab_name="Velocidades e Acelerações Lineares">
    <Container>
-    <DockSplitter orientation="-" count="2" sizes="0.5;0.5">
-     <DockSplitter orientation="|" count="3" sizes="0.333542;0.332915;0.333542">
+    <DockSplitter orientation="-" count="2" sizes="0.500642;0.499358">
+     <DockSplitter orientation="|" count="3" sizes="0.33282;0.334361;0.33282">
       <DockArea name="Velocidade: x (m) / t (seg) ">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
       <DockArea name="Velocidade: y (m) / t (seg) ">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
       <DockArea name="Velocidade: z (m) / t (seg) ">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
      </DockSplitter>
-     <DockSplitter orientation="|" count="3" sizes="0.334169;0.331661;0.334169">
+     <DockSplitter orientation="|" count="3" sizes="0.334361;0.331279;0.334361">
       <DockArea name="Aceleração: x (m) / t (seg²) ">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
       <DockArea name="Aceleração: y (m) / t (seg²) ">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
       <DockArea name="Aceleração: z (m) / t (seg²) ">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
@@ -110,22 +110,22 @@
   <Tab containers="1" tab_name="Velocidades Angulares">
    <Container>
     <DockSplitter orientation="-" count="1" sizes="1">
-     <DockSplitter orientation="|" count="3" sizes="0.333542;0.332915;0.333542">
+     <DockSplitter orientation="|" count="3" sizes="0.33282;0.334361;0.33282">
       <DockArea name="Velocidade: roll (rad) / t (seg) ">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
       <DockArea name="Velocidade: pitch (rad) / t (seg) ">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
       <DockArea name="Velocidade: yaw (rad) / t (seg) ">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
@@ -135,43 +135,43 @@
   </Tab>
   <Tab containers="1" tab_name="ROD">
    <Container>
-    <DockSplitter orientation="-" count="2" sizes="0.5;0.5">
-     <DockSplitter orientation="|" count="3" sizes="0.333542;0.332915;0.333542">
+    <DockSplitter orientation="-" count="2" sizes="0.500642;0.499358">
+     <DockSplitter orientation="|" count="3" sizes="0.33282;0.334361;0.33282">
       <DockArea name="Force: x (N) / t (seg)">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
       <DockArea name="Force: y (N) / t (seg)">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
       <DockArea name="Force: z (N) / t (seg)">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
      </DockSplitter>
-     <DockSplitter orientation="|" count="3" sizes="0.334169;0.331661;0.334169">
+     <DockSplitter orientation="|" count="3" sizes="0.334361;0.331279;0.334361">
       <DockArea name="Torque: roll (N) / t (seg)">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
       <DockArea name="Torque: pitch (N) / t (seg)">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
       <DockArea name="Torque: yaw (N) / t (seg)">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
@@ -179,67 +179,48 @@
     </DockSplitter>
    </Container>
   </Tab>
-  <Tab containers="1" tab_name="Setpoints de Controle">
+  <Tab containers="1" tab_name="Controle">
    <Container>
-    <DockSplitter orientation="-" count="2" sizes="0.5;0.5">
-     <DockSplitter orientation="|" count="2" sizes="0.5;0.5">
-      <DockArea name="Motor 0">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="145.919628" top="1926.025000" bottom="874.975000"/>
-        <limitY/>
-       </plot>
-      </DockArea>
-      <DockArea name="Motor 1">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="145.919628" top="1920.900000" bottom="875.100000"/>
-        <limitY/>
-       </plot>
-      </DockArea>
-     </DockSplitter>
-     <DockSplitter orientation="|" count="2" sizes="0.5;0.5">
-      <DockArea name="Motor 2">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="145.919628" top="1927.050000" bottom="874.950000"/>
-        <limitY/>
-       </plot>
-      </DockArea>
-      <DockArea name="Motor 3">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="145.919628" top="1920.900000" bottom="875.100000"/>
-        <limitY/>
-       </plot>
-      </DockArea>
-     </DockSplitter>
+    <DockSplitter orientation="-" count="1" sizes="1">
+     <DockArea name="...">
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range right="261.700000" top="2083.076688" left="256.700000" bottom="-465.076597"/>
+       <limitY/>
+       <curve name="/rod/control/control_output/data" color="#d62728"/>
+       <curve name="/rod/control/reference/data" color="#1ac938"/>
+       <curve name="/rod/control/setpoint/data" color="#ff7f0e"/>
+      </plot>
+     </DockArea>
     </DockSplitter>
    </Container>
   </Tab>
   <Tab containers="1" tab_name="RPM dos Motores">
    <Container>
-    <DockSplitter orientation="-" count="2" sizes="0.5;0.5">
+    <DockSplitter orientation="-" count="2" sizes="0.500642;0.499358">
      <DockSplitter orientation="|" count="2" sizes="0.5;0.5">
       <DockArea name="Motor 0 (RPM)">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
       <DockArea name="Motor 1 (RPM)">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
      </DockSplitter>
-     <DockSplitter orientation="|" count="2" sizes="0.5;0.5">
+     <DockSplitter orientation="|" count="2" sizes="0.503077;0.496923">
       <DockArea name="Motor 2 (RPM)">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
       <DockArea name="Motor 3 (RPM)">
-       <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-        <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+       <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+        <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
         <limitY/>
        </plot>
       </DockArea>
@@ -251,8 +232,8 @@
    <Container>
     <DockSplitter orientation="-" count="1" sizes="1">
      <DockArea name="Voltagem: v (volts) / t (seg)  [Cut-off Voltage = 14.4]">
-      <plot style="Lines" flip_y="false" flip_x="false" mode="TimeSeries">
-       <range left="0.000000" right="1.000000" top="1.000000" bottom="0.000000"/>
+      <plot flip_y="false" style="Lines" mode="TimeSeries" flip_x="false">
+       <range right="1.000000" top="1.000000" left="0.000000" bottom="0.000000"/>
        <limitY/>
       </plot>
      </DockArea>
@@ -266,7 +247,7 @@
  <!-- - - - - - - - - - - - - - - -->
  <Plugins>
   <plugin ID="DataLoad CSV">
-   <parameters time_axis="" delimiter="0"/>
+   <parameters delimiter="0" time_axis=""/>
   </plugin>
   <plugin ID="DataLoad MCAP"/>
   <plugin ID="DataLoad ROS bags">
@@ -284,7 +265,7 @@
    <max_array_size value="100"/>
    <boolean_strings_to_number value="true"/>
    <remove_suffix_from_strings value="true"/>
-   <selected_topics value="/mavros/battery;/mavros/global_position/local;/mavros/imu/data;/motor_speed/0;/motor_speed/1;/motor_speed/2;/motor_speed/3;/rod/force_vector;/rod/torque_vector"/>
+   <selected_topics value="/mavros/battery;/mavros/global_position/local;/mavros/imu/data;/motor_speed/0;/motor_speed/1;/motor_speed/2;/motor_speed/3;/rod/control/control_output;/rod/control/reference;/rod/control/setpoint;/rod/force_vector;/rod/torque_vector"/>
   </plugin>
   <plugin ID="UDP Server"/>
   <plugin ID="WebSocket Server"/>

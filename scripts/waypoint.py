@@ -55,6 +55,10 @@ class SendGoalObstacle:
         self.integral = 0
         self.prev_error = 0
 
+        # Limits for control output
+        self.CONTROL_OUTPUT_MIN = -10.0
+        self.CONTROL_OUTPUT_MAX = 10.0
+
         # Thread for user input
         self.input_thread = threading.Thread(target=self.get_user_input)
         self.input_thread.daemon = True
@@ -89,6 +93,13 @@ class SendGoalObstacle:
             derivative = error - self.prev_error
 
             self.control_output = self.kp * error + self.ki * self.integral + self.kd * derivative
+
+            # Apply limits to control output
+            if self.control_output > self.CONTROL_OUTPUT_MAX:
+                self.control_output = self.CONTROL_OUTPUT_MAX
+            elif self.control_output < self.CONTROL_OUTPUT_MIN:
+                self.control_output = self.CONTROL_OUTPUT_MIN
+
             self.prev_error = error
             
             stp.data = self.force_setpoint

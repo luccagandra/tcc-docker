@@ -385,15 +385,16 @@
             <ode>
               <max_vel>100.0</max_vel>
               <min_depth>0.001</min_depth>
-              <!--<kp>1e15</kp>-->
-              <!--<kd>1e13</kd>-->
+              <!-- Rubber on Concrete - ChatGPT... -->
+              <kp>100000</kp>
+              <kd>500</kd>
             </ode>
           </contact>
           <friction>
             <ode>
-              <!--<mu>100</mu>-->
-              <!--<mu2>100</mu2>-->
-              <!--<fdir1>1 0 0</fdir1>-->
+              <mu>0.85</mu> <!-- Rubber on concrete https://mae.ufl.edu/designlab/Class%20Projects/Background%20Information/Friction%20coefficients.htm -->
+              <mu2>0.85</mu2> <!-- Same as mu -->
+              <fdir1>1 0 0</fdir1> <!-- Unit vector specifying first friction pyramid direction -->
             </ode>
           </friction>
         </surface>
@@ -402,7 +403,7 @@
       <sensor name='ros_contact_sensor' type='contact'>
         <always_on>1</always_on>
         <contact>
-          <collision>rod_collision</collision>
+          <collision>rod_bump_collision</collision>
           <topic>/rod/collision</topic>
         </contact>
         <plugin name='contact_plugin' filename='libgazebo_ros_bumper.so'>

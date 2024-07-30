@@ -372,38 +372,10 @@
         </surface>
       </collision>
 
-      <collision name="rod_bump_collision">
-        <pose>0.348 -0.0008 -0.014 1.5707 0 1.5707</pose>
-        <geometry>
-          <cylinder>
-            <radius>0.01</radius>
-            <length>0.01</length>
-          </cylinder>
-        </geometry>
-        <surface>
-          <contact>
-            <ode>
-              <max_vel>100.0</max_vel>
-              <min_depth>0.001</min_depth>
-              <!-- Rubber on Concrete - ChatGPT... -->
-              <kp>100000</kp>
-              <kd>500</kd>
-            </ode>
-          </contact>
-          <friction>
-            <ode>
-              <mu>0.85</mu> <!-- Rubber on concrete https://mae.ufl.edu/designlab/Class%20Projects/Background%20Information/Friction%20coefficients.htm -->
-              <mu2>0.85</mu2> <!-- Same as mu -->
-              <fdir1>1 0 0</fdir1> <!-- Unit vector specifying first friction pyramid direction -->
-            </ode>
-          </friction>
-        </surface>
-      </collision>
-
       <sensor name='ros_contact_sensor' type='contact'>
         <always_on>1</always_on>
         <contact>
-          <collision>rod_bump_collision</collision>
+          <collision>rod_collision</collision>
           <topic>/rod/collision</topic>
         </contact>
         <plugin name='contact_plugin' filename='libgazebo_ros_bumper.so'>

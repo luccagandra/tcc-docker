@@ -419,7 +419,7 @@
     <link name='rod_link'>
       <pose>0.165 0.001 -0.014 0 -0 0</pose>
       <inertial>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0 0 1.5707 0</pose>
         <mass>0.110</mass>
 
 
@@ -429,15 +429,15 @@
           izz="${cable_mass * cable_radius * cable_radius / 2}"/>
         </inertial>-->
 
-        <!--cable_length = 0.23, cable_radius = 0.01, mass = 0.110 -->
+        <!--cable_length = 0.23, cable_radius = 0.005, mass = 0.110 -->
 
         <inertia>
-          <ixx>0.00008433333</ixx>
+          <ixx>0.00048560416</ixx> <!-- 0.00048560416 -->
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.00008433333</iyy>
+          <iyy>0.00048560416</iyy> <!-- 0.00048560416 -->
           <iyz>0</iyz>
-          <izz>0.0000055</izz>
+          <izz>0.000001375</izz> <!-- 0.000001375 -->
         </inertia>
       </inertial>
     </link>
@@ -501,9 +501,9 @@
       <inertial>
         <mass>0.01</mass>
         <inertia>
-          <ixx>0.001</ixx>
-          <iyy>0.001</iyy>
-          <izz>0.001</izz>
+          <ixx>0</ixx>
+          <iyy>0</iyy>
+          <izz>0</izz>
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyz>0</iyz>

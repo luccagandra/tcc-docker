@@ -7,12 +7,12 @@
         <pose>0 0 0 0 0 0</pose>
         <mass>0.015</mass>
         <inertia>
-          <ixx>1e-05</ixx>
+          <ixx>1e-05</ixx> <!-- 1e-05 -->
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1e-05</iyy>
+          <iyy>1e-05</iyy> <!-- 1e-05 -->
           <iyz>0</iyz>
-          <izz>1e-05</izz>
+          <izz>1e-05</izz> <!-- 1e-05 -->
         </inertia>
       </inertial>
       <visual name="visual">

@@ -83,11 +83,11 @@ class Dualshock:
 
         z_passed = False
 
-        if self.R2 > 0.1:
+        if self.r2_total == 1:
             self.message.linear.z = 0.75*self.velocity
             z_passed = True
 
-        if self.R2 < -0.1:
+        if self.l2_total == 1:
             self.message.linear.z = -0.75*self.velocity 
             z_passed = True
 
@@ -96,7 +96,7 @@ class Dualshock:
 
         # Roll -> Movimento para esquerda e direita (linear.y)
         if self.r_hor > 0.1 or self.r_hor < -0.1:
-            self.message.linear.y = self.velocity * self.l_hor
+            self.message.linear.y = -self.velocity * self.r_hor
         else:
             self.message.linear.y = 0
 
@@ -108,9 +108,9 @@ class Dualshock:
 
         # Movimento angular L1 e R1
         if self.l1:
-            self.message.angular.z = -self.velocity_angular
-        elif self.r1:
             self.message.angular.z = self.velocity_angular
+        elif self.r1:
+            self.message.angular.z = -self.velocity_angular
         else:
             self.message.angular.z = 0
 

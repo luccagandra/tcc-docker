@@ -83,11 +83,11 @@ class Dualshock:
 
         z_passed = False
 
-        if self.R2 > 0.1:
+        if self.r2_total == 1:
             self.message.linear.z = 0.75*self.velocity
             z_passed = True
 
-        if self.R2 < -0.1:
+        if self.l2_total == 1:
             self.message.linear.z = -0.75*self.velocity 
             z_passed = True
 

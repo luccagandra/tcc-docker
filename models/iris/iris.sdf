@@ -10,12 +10,12 @@
       <inertial>
         <mass>2.0</mass>
         <inertia>
-          <ixx>0.02166666666666667</ixx>
+          <ixx>0.02166666666666667</ixx> <!-- 0.02166666666666667 -->
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.02166666666666667</iyy>
+          <iyy>0.02166666666666667</iyy> <!-- 0.02166666666666667 -->
           <iyz>0</iyz>
-          <izz>0.04000000000000001</izz>
+          <izz>0.04000000000000001</izz> <!-- 0.04000000000000001 -->
         </inertia>
       </inertial>
       <gravity>true</gravity>
@@ -133,6 +133,22 @@
         <material>
           <script>
             <name>Gazebo/Silver</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+
+      <visual name='rod_bump_visual'>
+        <pose>0.348 -0.0008 -0.014 1.5707 0 1.5707</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.01</radius>
+            <length>0.01</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Red</name>
             <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
         </material>
@@ -356,10 +372,38 @@
         </surface>
       </collision>
 
+      <collision name="rod_bump_collision">
+        <pose>0.348 -0.0008 -0.014 1.5707 0 1.5707</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.01</radius>
+            <length>0.01</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <contact>
+            <ode>
+              <max_vel>100.0</max_vel>
+              <min_depth>0.001</min_depth>
+              <!-- Rubber on Concrete - ChatGPT... -->
+              <kp>100000</kp>
+              <kd>500</kd>
+            </ode>
+          </contact>
+          <friction>
+            <ode>
+              <mu>0.85</mu> <!-- Rubber on concrete https://mae.ufl.edu/designlab/Class%20Projects/Background%20Information/Friction%20coefficients.htm -->
+              <mu2>0.85</mu2> <!-- Same as mu -->
+              <fdir1>1 0 0</fdir1> <!-- Unit vector specifying first friction pyramid direction -->
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+
       <sensor name='ros_contact_sensor' type='contact'>
         <always_on>1</always_on>
         <contact>
-          <collision>rod_collision</collision>
+          <collision>rod_bump_collision</collision>
           <topic>/rod/collision</topic>
         </contact>
         <plugin name='contact_plugin' filename='libgazebo_ros_bumper.so'>
@@ -390,7 +434,7 @@
           <ixx>0.00020833333</ixx> <!-- 0.00020833333 -->
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.00028333333</iyy> <!-- 0.00028333333 -->
+          <iyy>0.00020833333</iyy> <!-- 0.00028333333 -->
           <iyz>0</iyz>
           <izz>0.00034166666</izz> <!-- 0.00034166666 -->
         </inertia>
@@ -415,11 +459,11 @@
       </physics>
     </joint>
 
-    <!-- SENSOR BOX -->
+    <!-- ROD -->
     <link name='rod_link'>
       <pose>0.165 0.001 -0.014 0 -0 0</pose>
       <inertial>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0 0 1.5707 0</pose>
         <mass>0.110</mass>
 
 
@@ -432,12 +476,12 @@
         <!--cable_length = 0.23, cable_radius = 0.01, mass = 0.110 -->
 
         <inertia>
-          <ixx>0.00008433333</ixx>
+          <ixx>0.00048766666</ixx> <!-- 0.00048766666 -->
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.00008433333</iyy>
+          <iyy>0.00048766666</iyy> <!-- 0.00048766666 -->
           <iyz>0</iyz>
-          <izz>0.0000055</izz>
+          <izz>0.0000055</izz> <!-- 0.0000055 -->
         </inertia>
       </inertial>
     </link>
@@ -499,11 +543,11 @@
     <link name='cam_link'>
       <pose>0.15 -0 -0.11 0 0 0</pose>
       <inertial>
-        <mass>0.01</mass>
+        <mass>0.001</mass>
         <inertia>
-          <ixx>0.001</ixx>
-          <iyy>0.001</iyy>
-          <izz>0.001</izz>
+          <ixx>0.0000001</ixx> <!-- 0.0000001 Estranho -->
+          <iyy>0.0000001</iyy> <!-- 0.0000001 Estranho -->
+          <izz>0.0000001</izz> <!-- 0.0000001 Estranho -->
           <ixy>0</ixy>
           <ixz>0</ixz>
           <iyz>0</iyz>
@@ -583,6 +627,7 @@
       -->
     </link>
 
+    <!-- JUNTA CÂMERA -->
     <joint name='camera_mount' type='fixed'>
       <parent>base_link</parent>
       <child>cam_link</child>
@@ -600,6 +645,7 @@
         </ode>
       </physics>
     </joint>
+
     
     <link name="rotor_0">
       <gravity>true</gravity>

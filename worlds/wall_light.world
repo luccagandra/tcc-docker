@@ -92,6 +92,10 @@
       <elevation>0</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
+
+
+    <!-- WALL -->
+    
     <model name='grey_wall'>
       <static>1</static>
       <link name='link'>
@@ -182,6 +186,9 @@
       </link>
       <pose>-0.255967 6.24221 0 0 -0 0</pose>
     </model>
+
+    <!-- WALL -->
+
     <state world_name='default'>
       <sim_time>1246 387000000</sim_time>
       <real_time>28 67121633</real_time>
